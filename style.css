@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* All page */
+.allPage {
+    background: linear-gradient(#AFD3E2,#3dbcdf);
+    height: 100vh;
+    position: relative;
+}
+
+/* Playground */
+.playground {
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(#FFF8D6,#F7E1AE);
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
