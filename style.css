@@ -20,3 +20,58 @@
     left: 10%;
     top: 10%;
 }
+
+/* Total Score */
+.totalScore {
+    font-size: 30px;
+    color: #3dbcdf;
+    font-weight: bold;
+}
+
+.totalScore p:nth-child(2) {
+    font-size: 40px;
+    text-align: center;
+}
+
+.tolalScore0 {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+
+}
+
+.tolalScore1 {
+    position: absolute;
+    top: 15%;
+    left: 72%;
+}
+
+/* Current Score */
+.currentScore {
+    width: 150px;
+    height: 150px;
+    background: #5fc0db;
+}
+
+.currentScore p {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.currentScore p:nth-child(2) {
+    font-size: 40px;
+}
+
+.currentScore0 {
+    position: absolute;
+    top: 40%;
+    left: 11%;    
+}
+
+.currentScore1 {
+    position: absolute;
+    top: 40%;
+    right: 7%;    
+}
