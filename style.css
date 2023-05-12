@@ -16,6 +16,7 @@
     width: 80%;
     height: 80%;
     background: linear-gradient(#FFF8D6,#F7E1AE);
+    border-radius: 20px;
     position: absolute;
     left: 10%;
     top: 10%;
@@ -43,7 +44,7 @@
 .tolalScore1 {
     position: absolute;
     top: 15%;
-    left: 72%;
+    right: 12%;
 }
 
 /* Current Score */
@@ -51,6 +52,7 @@
     width: 150px;
     height: 150px;
     background: #5fc0db;
+    border-radius: 20Px;
 }
 
 .currentScore p {
@@ -73,5 +75,35 @@
 .currentScore1 {
     position: absolute;
     top: 40%;
-    right: 7%;    
+    right: 12%;  
+}
+
+/* Buttens */
+.middleText {
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+.btn {
+    border: 2px solid #146C94;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background: #146C94;
+}
+
+.btn:hover {
+    border: 2px solid #3dbcdf;
+    background-color: #3dbcdf;
+}
+
+/* Dice */
+.dice {
+    position: absolute;
+    top: 30%;
+    left: 46%;
 }
