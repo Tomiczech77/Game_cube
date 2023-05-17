@@ -22,4 +22,32 @@ document.querySelector(".rollDice").addEventListener("click", function(){
     var diceElement = document.querySelector(".diceImage");
     diceElement.style.display = "block";
     console.log(diceElement.src = "img/" + dice + ".jpg");
+
+    // loading numbers from dice
+    if (dice != 1){
+        roundScore = roundScore + dice;
+        document.getElementById("currentScore-0").textContent = roundScore;
+    } else {
+        nextPlayer();
+    }
 });
+
+function nextPlayer(){
+    if(activePlayer === 0){
+        activePlayer = 1;
+    } else {
+        activePlayer = 0;
+    }
+
+    roundScore = 0;
+    
+    document.getElementById("currentScore-0").textContent = 0;
+    document.getElementById("currentScore-1").textContent = 0;
+
+    document.querySelector(".diceImage").style.display = "none";
+
+    document.querySelector(".tolalScore0").classList.toggle("active");
+    document.querySelector(".tolalScore1").classList.toggle("active");
+
+
+}
