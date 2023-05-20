@@ -51,3 +51,17 @@ function nextPlayer(){
 
 
 }
+
+document.querySelector(".holdScore").addEventListener("click", function(){
+    // total score will be filled current score
+    totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
+
+
+    document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
+
+    if(totalScore[activePlayer] >= 100){
+        document.querySelector("#name-" + activePlayer).textContent = "Vítěz!!!"
+    } else {
+        nextPlayer();
+    }
+});
