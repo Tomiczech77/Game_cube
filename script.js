@@ -1,5 +1,5 @@
 // basic variables
-var totalScore, roundScore, activePlayer, dice;
+var totalScore, roundScore, activePlayer, dice, playGame;
 
 newStart();
 
@@ -7,6 +7,7 @@ function newStart(){
     totalScore = [0, 0];
     roundScore = 0;
     activePlayer = 0;
+    playGame = true;
 
     // zeroing and removing the dice
     document.getElementById("totalScorePlayer-0").textContent = 0;
@@ -28,20 +29,22 @@ function newStart(){
 
 
 document.querySelector(".rollDice").addEventListener("click", function(){
-    // random number 1-6
-    var dice = Math.ceil(Math.random()*6);
+    if(playGame){
+        // random number 1-6
+        var dice = Math.ceil(Math.random()*6);
 
-    // display corect picture of dice
-    var diceElement = document.querySelector(".diceImage");
-    diceElement.style.display = "block";
-    console.log(diceElement.src = "img/" + dice + ".jpg");
+        // display corect picture of dice
+        var diceElement = document.querySelector(".diceImage");
+        diceElement.style.display = "block";
+        console.log(diceElement.src = "img/" + dice + ".jpg");
 
-    // loading numbers from dice
-    if (dice != 1){
-        roundScore = roundScore + dice;
-        document.getElementById("currentScore-" + activePlayer).textContent = roundScore;
-    } else {
-        nextPlayer();
+        // loading numbers from dice
+        if (dice != 1){
+            roundScore = roundScore + dice;
+            document.getElementById("currentScore-" + activePlayer).textContent = roundScore;
+        } else {
+            nextPlayer();
+        }
     }
 });
 
@@ -66,17 +69,20 @@ function nextPlayer(){
 }
 
 document.querySelector(".holdScore").addEventListener("click", function(){
-    // total score will be filled current score
-    totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
+    if(playGame){
+        // total score will be filled current score
+        totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
 
 
-    document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
+        document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
 
-    if(totalScore[activePlayer] >= 100){
-        document.querySelector("#name-" + activePlayer).textContent = "Vítěz, Vítěz!";
-        document.querySelector(".diceImage").style.display = "none";
-    } else {
-        nextPlayer();
+        if(totalScore[activePlayer] >= 100){
+            document.querySelector("#name-" + activePlayer).textContent = "Vítěz, Vítěz!";
+            document.querySelector(".diceImage").style.display = "none";
+            playGame = false;
+        } else {
+            nextPlayer();
+        }
     }
 });
 
