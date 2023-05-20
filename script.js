@@ -1,18 +1,31 @@
 // basic variables
 var totalScore, roundScore, activePlayer, dice;
 
-totalScore = [0, 0];
-roundScore = 0;
-activePlayer = 0;
+newStart();
 
-// zeroing and removing the dice
-document.getElementById("totalScorePlayer-0").textContent = 0;
-document.getElementById("totalScorePlayer-1").textContent = 0;
+function newStart(){
+    totalScore = [0, 0];
+    roundScore = 0;
+    activePlayer = 0;
 
-document.getElementById("currentScore-0").textContent = 0;
-document.getElementById("currentScore-1").textContent = 0;
+    // zeroing and removing the dice
+    document.getElementById("totalScorePlayer-0").textContent = 0;
+    document.getElementById("totalScorePlayer-1").textContent = 0;
+    document.getElementById("currentScore-0").textContent = 0;
+    document.getElementById("currentScore-1").textContent = 0;
 
-document.querySelector(".diceImage").style.display = "none";
+    // hide the dice
+    document.querySelector(".diceImage").style.display = "none";
+    
+    // vintage text
+    document.querySelector("#name-0").textContent = "Skóre 1. hráče";
+    document.querySelector("#name-1").textContent = "Skóre 2. hráče";
+
+    // The first player will be active
+    document.querySelector(".tolalScore0").classList.add("active");
+    document.querySelector(".tolalScore1").classList.remove("active");
+}
+
 
 document.querySelector(".rollDice").addEventListener("click", function(){
     // random number 1-6
@@ -26,7 +39,7 @@ document.querySelector(".rollDice").addEventListener("click", function(){
     // loading numbers from dice
     if (dice != 1){
         roundScore = roundScore + dice;
-        document.getElementById("currentScore-0").textContent = roundScore;
+        document.getElementById("currentScore-" + activePlayer).textContent = roundScore;
     } else {
         nextPlayer();
     }
@@ -60,8 +73,11 @@ document.querySelector(".holdScore").addEventListener("click", function(){
     document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
 
     if(totalScore[activePlayer] >= 100){
-        document.querySelector("#name-" + activePlayer).textContent = "Vítěz!!!"
+        document.querySelector("#name-" + activePlayer).textContent = "Vítěz, Vítěz!";
+        document.querySelector(".diceImage").style.display = "none";
     } else {
         nextPlayer();
     }
 });
+
+document.querySelector(".newGame").addEventListener("click", newStart);
